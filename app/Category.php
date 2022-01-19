@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory;
-
     /**
      * The attributes that aren't mass assignable.
      *
@@ -26,6 +23,6 @@ class Category extends Model
     ];
 
     public function articles(){
-    	$this->hasMany('App\Models\Article');
+    	$this->hasMany('App\Article');
     }
 }

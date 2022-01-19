@@ -35,6 +35,10 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('articles');
+
+        Schema::enableForeignKeyConstraints();
     }
 }

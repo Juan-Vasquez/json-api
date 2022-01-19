@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     /**
      * The attributes that aren't mass assignable.
@@ -28,7 +28,7 @@ class Article extends Model
     ];
 
     public function category(){
-    	return $this->belongsTo('App\Models\Category');
+    	return $this->belongsTo('App\Category');
     }
 
     public function user(){
