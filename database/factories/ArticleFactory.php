@@ -12,7 +12,7 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $this->faker->sentence(4),
         'slug'	=> $this->faker->slug,
         'content'	=> $this->faker->paragraphs(3, true),
-        'category_id'	=> factory(Category::class),
-        'user_id'	=> factory(User::class)
+        // 'category_id'	=> factory(Category::class),
+        // 'user_id'	=> factory(User::class)
     ];
 });
