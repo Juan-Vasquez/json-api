@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateArticleTest extends TestCase
-{
+{    
     use RefreshDatabase;
 
     /** @test */
@@ -68,7 +68,7 @@ class CreateArticleTest extends TestCase
             ]
         ]);
 
-        $response->assertJsonValidationErrors('data.attributes.title');
+        $response->assertJsonApiValidationErrors('title');
     }
 
     /** @test */
@@ -86,7 +86,7 @@ class CreateArticleTest extends TestCase
             ]
         ]);
 
-        $response->assertJsonValidationErrors('data.attributes.title');
+        $response->assertJsonApiValidationErrors('title');
     }
 
     /** @test */
@@ -104,7 +104,7 @@ class CreateArticleTest extends TestCase
             ]
         ]);
 
-        $response->assertJsonValidationErrors('data.attributes.slug');
+        $response->assertJsonApiValidationErrors('slug');
     }
 
     /** @test */
@@ -122,6 +122,6 @@ class CreateArticleTest extends TestCase
             ]
         ]);
 
-        $response->assertJsonValidationErrors('data.attributes.content');
+        $response->assertJsonApiValidationErrors('content');
     }
 }
