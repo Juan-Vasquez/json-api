@@ -16,6 +16,8 @@ class ValidateJsonApiDocumentTest extends TestCase
     {
     	parent::setUp();
 
+        $this->withoutJsonApiDocument();
+
     	// Route::any | get, post, patch y delete
         Route::any('test_header', function(){
         	return "OK";

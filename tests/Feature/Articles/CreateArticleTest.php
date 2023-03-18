@@ -8,7 +8,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateArticleTest extends TestCase
-{    
+{
+
     use RefreshDatabase;
 
     /** @test */
@@ -17,17 +18,10 @@ class CreateArticleTest extends TestCase
     	$this->withoutExceptionHandling();
 
         $response = $this->postJson(route('api.v1.articles.store'), [
-        	'data' => [
-        		'type' => 'articles',
-        		'attributes' => [
-        			'title' => 'Nuevo articulo',
-        			'slug' => 'nuevo-articulo',
-        			'content' => 'Este es un nuevo articulo',
-        		]
-        	]
-        ]);
-
-        $response->assertCreated();
+            'title' => 'Nuevo articulo',
+            'slug' => 'nuevo-articulo',
+            'content' => 'Este es un nuevo articulo'
+        ])->assertCreated();
 
 
         $article = Article::first();
@@ -57,18 +51,11 @@ class CreateArticleTest extends TestCase
     public function title_is_required()
     {
 
-        $response = $this->postJson(route('api.v1.articles.store'), [
-            'data' => [
-                'type' => 'articles',
-                'attributes' => [
-                    // 'title' => 'Nuevo articulo',
-                    'slug' => 'nuevo-articulo',
-                    'content' => 'Este es un nuevo articulo',
-                ]
-            ]
-        ]);
-
-        $response->assertJsonApiValidationErrors('title');
+        $this->postJson(route('api.v1.articles.store'), [
+            // 'title' => 'Nuevo articulo',
+            'slug' => 'nuevo-articulo',
+            'content' => 'Este es un nuevo articulo',
+        ])->assertJsonApiValidationErrors('title');
     }
 
     /** @test */
