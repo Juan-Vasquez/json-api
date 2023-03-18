@@ -56,6 +56,8 @@ class Handler extends ExceptionHandler
 
     protected function invalidJson($request, ValidationException $exception)
     {
+     
+
         $title = $exception->getMessage();
 
         return response()->json([
@@ -69,7 +71,9 @@ class Handler extends ExceptionHandler
                         ]
                     ];
                 })->values()
-        ], 422);
+        ], 422, [
+            'content-type' => 'application/vnd.api+json'
+        ]);
     }
 
 
